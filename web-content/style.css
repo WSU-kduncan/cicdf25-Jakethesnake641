@@ -1,0 +1,67 @@
+body {
+  font-family: 'Comic Sans MS', sans-serif;
+  background-color: #fffbe6;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #ffcc66;
+  padding: 1.5em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+  color: #b36b00;
+}
+
+nav a {
+  color: #663300;
+  text-decoration: none;
+  margin: 0 8px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  margin: 2em;
+}
+
+.button {
+  background-color: #ff9900;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #e68a00;
+}
+
+footer {
+  background-color: #ffcc66;
+  padding: 10px;
+  font-size: 0.9em;
+}
+
+.joke-list {
+  list-style: none;
+  padding: 0;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+.joke-list li {
+  background: #fff3d1;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ffcc66;
+}
