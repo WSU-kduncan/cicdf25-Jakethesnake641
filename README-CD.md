@@ -7,10 +7,10 @@ git tag
 To list a certain tag:
 `git show v1.0.0`
 ## Creating Git Tag
-v MAJOR . MINOR . PATCH
-To create a tag:
+- v MAJOR . MINOR . PATCH
+- To create a tag:
 `git tag -a v1.0.0 -m "Release version 1.0.0"`
-To push a tag:
+- To push a tag:
 `git push origin v1.0.0`
 ## Workflow Trigger
 ```on:
@@ -20,23 +20,23 @@ To push a tag:
 ```
 Explanation: Pushing v1.2.0 -> workflow runs, pushing to main does not run, pull requests do not run.
 ## Workflow Steps
-Checkout Repository:
+- Checkout Repository:
 `- uses: actions/checkout@v5`
-Required so Dockerfile and web-content are available
-Extract version metadata:
+- Required so Dockerfile and web-content are available
+- Extract version metadata:
 `- uses: docker/metadata-action@v5`
-This action reads the git tag (e.g., v1.2.0) and outputs:
-- latest
-- 1 (major)
-- 1.2 (major.minor)
+- This action reads the git tag (e.g., v1.2.0) and outputs:
+  - latest
+  - 1 (major)
+  - 1.2 (major.minor)
 Login to DockerHub:
 ```- uses: docker/login-action@v3
   with:
-    username: ${{ secrets.DOCKER_USERNAME }}
-    password: ${{ secrets.DOCKER_TOKEN }}
+   username: ${{ secrets.DOCKER_USERNAME }}
+   password: ${{ secrets.DOCKER_TOKEN }}
 ```
-Uses same secrets created in part two.
-Build and push Docker image:
+- Uses same secrets created in part two.
+- Build and push Docker image:
 ```- uses: docker/build-push-action@v6
   with:
     context: .
