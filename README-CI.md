@@ -144,17 +144,17 @@ Explanation:
 - No pull requests
 - No tags yet
 ### Workflow Steps
-First:
+- First:
 ```- uses: actions/checkout@v5```
 Explanation: Pulls repo content so workflow can access Dockerfile and web-content
-Second:
+- Second:
 ```- uses: docker/login-action@v3
   with:
     username: ${{ secrets.DOCKER_USERNAME }}
     password: ${{ secrets.DOCKER_TOKEN }}
 ```
 Explanation: Uses DockerHub credentials stored in GitHub Secrets
-Third:
+- Third:
 ```- uses: docker/build-push-action@v6
   with:
     context: .
