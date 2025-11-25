@@ -19,6 +19,6 @@ jobs:
 
       - uses: docker/build-push-action@v6
         with:
-          context: ./Project4/Dockerfile
+          context: .
           push: true
           tags: jawing641/dadjokes:latest
