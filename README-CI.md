@@ -7,6 +7,32 @@ This project uses two html files and a css file under the directory ./web-conten
 ## Prompt used:
 "Create a dad joke themed website with a minimum of two HTML files and one CSS file."
 
+# Project Overview
+## Continuous Integration Project Overview
+This project creates a Continuous Integration pipeline that automatically builds a Docker container image
+for the "Dad Joke Central" web application. Everytime code is pushed to the main branch, GitHub Actions
+builds the Docker image using the repo's Dockerfile and then pushes the image to DockerHub. CI pipeline
+is used in Part 3: This implements version control.
+
+## Tools Used
+### Docker
+Used to containerize the Dad Joke website
+Builds container image, runs image locally, stores final images on DockerHub
+### DockerHub
+Public container used to store: latest container image, rebuilt images from CI
+### GitHub Actions
+Provides automation for the CI pipeline.
+Triggers the workflow when code is pushed to main, authenticates to DockerHub using repo secrets,
+builds the Docker image, and pushes the image to DockerHub automatically.
+### Repository Secrets
+Allow secure authentication to DockerHub without exposing credentials.
+Two GitHub secrets: DOCKER USERNAME, DOCKER TOKEN
+
+## Project Diagram
+Created using **LucidCharts**
+The diagram below shows the CI pipeline used in this project.
+
+![Project Diagram](images/ScreenshotProj4-1.png)
 # Part One
 ## Website content
 This repository contains a website called "Dad Joke Central," all web content files are stored in
@@ -156,6 +182,15 @@ git push
   - Started automatically
   - Completed successfully (green checkmark)
 ### How to Verify Image Works
+- Visit DockerHub repository:
+  - mine is: https://hub.docker.com/r/jawing641/dadjokes
+- Check latest tag timestamp
+- Pull updated image
+`docker pull jawing641/dadjokes:latest`
+- Run the container:
+`docker run --rm -p 8080:80 jawing641/dadjokes:latest`
+- Open:
+`http://localhost:8080`
 
 ## Part Two Sources
 
@@ -174,4 +209,7 @@ Used for: docker login using secrets
 
 Link: https://github.com/docker/build-push-action
 Used for: build push actions, and configuration
+
+Link: https://docs.docker.com/get-started/workshop/02_our_app/
+used for: accessing a container image
 
