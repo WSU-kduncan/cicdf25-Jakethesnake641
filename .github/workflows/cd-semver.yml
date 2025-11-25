@@ -17,6 +17,11 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: jawing641/dadjokes
+          tags: |
+              type=semver,pattern={{version}}
+              type=semver,pattern={{major}}
+              type=semver,pattern={{major}}.{{minor}}
+              type=raw,value=latest
 
       # Login to DockerHub using secrets
       - uses: docker/login-action@v3
