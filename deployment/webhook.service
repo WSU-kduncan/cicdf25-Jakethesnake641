@@ -1,0 +1,13 @@
+[Unit]
+Description=Webhook listener for Dad Jokes auto-deploy
+After=network-online.target
+
+[Service]
+User=ec2-user
+Group=ec2-user
+WorkingDirectory=/home/ec2-user/deployment
+ExecStart=/usr/local/bin/webhook -hooks /home/ec2-user/deployment/hooks.json -port 9000 -verbose
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

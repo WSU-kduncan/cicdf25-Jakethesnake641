@@ -1,0 +1,17 @@
+[
+  {
+    "id": "dadjokes-deploy",
+    "execute-command": "/home/ec2-user/deployment/deploy.sh",
+    "command-working-directory": "/home/ec2-user/deployment",
+    "trigger-rule": {
+      "match": {
+        "type": "value",
+        "parameter": {
+          "source": "header",
+          "name": "X-Webhook-Token"
+        },
+        "value": "SUPERSECRET123"
+      }
+    }
+  }
+]
