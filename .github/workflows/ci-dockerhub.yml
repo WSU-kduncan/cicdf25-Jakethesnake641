@@ -22,3 +22,12 @@ jobs:
           context: .
           push: true
           tags: jawing641/dadjokes:latest
+
+      - name: Notify EC2 Webhook Listener
+        env:
+          WEBHOOK_URL: http://3.95.65.132:9000/hooks/dadjokes-deploy
+          WEBHOOK_TOKEN: ${{ secrets.WEBHOOK_TOKEN }}
+        run: |
+          curl -X POST \
+            -H "X-Webhook-Token: ${WEBHOOK_TOKEN}" \
+            "$WEBHOOK_URL"
